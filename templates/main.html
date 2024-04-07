@@ -12,19 +12,20 @@
 <body>
 
     <div class="container">  
-        <div>
-            <img src="https://cessd.ou.ac.lk/wp-content/uploads/2022/10/ousl-Logo.png" class="col-3 m-2" alt="Responsive image">
+        <div class="col">
+            <div class="row m-1">
+                <div class="col"><img src="https://cessd.ou.ac.lk/wp-content/uploads/2022/10/ousl-Logo.png" class="col-4" alt="Responsive image"></div>
+                <div class="row">
+                    <div class="col">{% if user.is_authenticated %}
+                        <p class="m-2">Hello, {{user.name}}.</p>                    
+                        {% endif %}</div>
+                    <div class="col">{% if user.is_authenticated %}
+                        <button class="btn btn-primary">logout</button>
+                        {% endif %}</div> 
+                </div>  
+            </div>
+    
             
-            {% if user.is_authenticated %}
-                <p>
-                    Hello, {{user.name}}.
-                </p>
-                <button>
-                    logout
-                </button>
-            {% endif %}
-        </div>
-
         <div>
             {% include 'navbar.html' %}
         </div>
